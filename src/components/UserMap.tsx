@@ -30,7 +30,9 @@ const UserMap = () => {
 
       updateCircle(radius);
 
-      new mapboxgl.Marker().setLngLat([-114.05, 51.05]).addTo(map.current);
+      if (map.current) {
+        new mapboxgl.Marker().setLngLat([-114.05, 51.05]).addTo(map.current);
+      }
     });
 
     map.current.on("error", (e) => {
