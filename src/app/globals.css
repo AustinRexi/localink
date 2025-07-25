@@ -1,0 +1,40 @@
+@import url("./styles/tailwind.css");
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.react-pdf__Document {
+  --scale-factor: 0 !important;
+}
+
+.gradient-primary {
+  background: linear-gradient(360deg, #105083 0%, #1667a8 100%);
+}
+
+/* Skeleton Loader */
+.skeleton-loader {
+  display: inline-block;
+  width: 100%; /* Adjust the width as needed */
+  min-height: 50px; /* Adjust the height as needed */
+  background: linear-gradient(
+    120deg,
+    rgb(219, 219, 219, 0.25) 25%,
+    rgb(232, 232, 232, 0.25) 50%,
+    rgb(234, 234, 234, 0.25) 85%
+  );
+  background-size: 200% 100%;
+  animation: pulse 3s infinite ease-in-out;
+  border-radius: 0.5rem;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -200% 0;
+  }
+}

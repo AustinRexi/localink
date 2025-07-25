@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-primary: #1667a8;
+  --color-primary-2: #00447a;
+  --color-primary-foreground: #f4f4f4;
+}
+
+@layer components {
+  label {
+    @apply block mb-2;
+  }
+}
