@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 
 import Image from "next/image";
 
-// Reusable ToggleSwitch component
 const ToggleSwitch = ({ checked = false }) => (
   <label className="relative inline-flex items-center cursor-pointer">
     <input type="checkbox" className="sr-only peer" defaultChecked={checked} />
