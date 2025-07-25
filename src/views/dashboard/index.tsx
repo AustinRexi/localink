@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import History from "./History";
 import BookMarked from "./BookMarked";
-import NotificationSettings from "../../app/app/notifications/page";
+import NotificationSettings from "../../components/notifications";
 import Modal from "@/components/Modal";
 import SubscriptionCard from "../subscription";
 

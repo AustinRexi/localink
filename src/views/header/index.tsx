@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Modal from "@/components/Modal";
-import NotificationSettings from "../../app/app/notifications/page";
+import NotificationSettings from "../../components/notifications";
 
 interface HeaderProps {
   className?: string;

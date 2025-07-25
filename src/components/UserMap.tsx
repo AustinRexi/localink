@@ -43,7 +43,7 @@ const UserMap = () => {
         map.current = null;
       }
     };
-  }, []);
+  }, [radius]);
 
   const updateCircle = (radiusInKm: number) => {
     if (!map.current || !isStyleLoaded.current) return;
