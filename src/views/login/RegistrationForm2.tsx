@@ -5,7 +5,23 @@ import Image from "next/image";
 import TextInput from "@/components/Input/TextInput";
 import { Button } from "@/components/ui/button";
 
-const GenderButton = ({ gender, selectedGender, setGender, icon, label }) => {
+// Define the interface for GenderButton props
+interface GenderButtonProps {
+  gender: string;
+  selectedGender: string;
+  setGender: (gender: string) => void;
+  icon: string;
+  label: string;
+}
+
+// GenderButton component with typed props
+const GenderButton: React.FC<GenderButtonProps> = ({
+  gender,
+  selectedGender,
+  setGender,
+  icon,
+  label,
+}) => {
   return (
     <button
       onClick={() => setGender(gender)}
@@ -25,12 +41,19 @@ const GenderButton = ({ gender, selectedGender, setGender, icon, label }) => {
   );
 };
 
-export default function RegistrationForm2({ onContinueButton }) {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [allowContact, setAllowContact] = useState(false);
+// Define the interface for RegistrationForm2 props
+interface RegistrationForm2Props {
+  onContinueButton: () => void;
+}
+
+export default function RegistrationForm2({
+  onContinueButton,
+}: RegistrationForm2Props) {
+  const [name, setName] = useState<string>("");
+  const [surname, setSurname] = useState<string>("");
+  const [age, setAge] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
+  const [allowContact, setAllowContact] = useState<boolean>(false);
 
   const genderOptions = [
     { value: "male", label: "Male", icon: "/icons/other/maleicon.svg" },
@@ -39,7 +62,7 @@ export default function RegistrationForm2({ onContinueButton }) {
   ];
 
   return (
-    <div className="max-w-md mx-auto p-8 mt-10 space-y-6  rounded-lg">
+    <div className="max-w-md mx-auto p-8 mt-10 space-y-6 rounded-lg">
       <div className="mb-4">
         <label className="block text-black font-inter font-semibold text-base leading-none tracking-normal">
           Your Name:
@@ -115,7 +138,6 @@ export default function RegistrationForm2({ onContinueButton }) {
         className="w-full bg-black text-white p-2 rounded-md"
         onClick={onContinueButton}
       >
-        {" "}
         Continue
       </Button>
       <div className="w-full bg-gray-200 h-2 rounded mt-4">
