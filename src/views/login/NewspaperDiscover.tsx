@@ -6,10 +6,15 @@ import TextInput from "@/components/Input/TextInput";
 import UserMap from "@/components/UserMap";
 import { Button } from "@/components/ui/button";
 
-export default function NewspaperDiscover({ onContinueButton }) {
-  // const [location, setLocation] = useState("Calgary");
+// Define the props interface
+interface NewspaperDiscoverProps {
+  onContinueButton: () => void; // Type for the onContinueButton prop
+}
+
+export default function NewspaperDiscover({
+  onContinueButton,
+}: NewspaperDiscoverProps) {
   const [postalCode, setPostalCode] = useState("T1S 2E1");
-  // const [radius, setRadius] = useState(50);
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
 
   const cards = [
@@ -34,7 +39,7 @@ export default function NewspaperDiscover({ onContinueButton }) {
   ];
 
   return (
-    <div className="min-h-screen  p-1">
+    <div className="min-h-screen p-1">
       <h1 className="text-2xl font-bold text-center mb-4">
         Discover local newspapers!
       </h1>
@@ -119,7 +124,7 @@ export default function NewspaperDiscover({ onContinueButton }) {
                 )}
               </div>
               <p
-                className={`font-inter font-semibold text-base leading-none tracking-normal${
+                className={`font-inter font-semibold text-base leading-none tracking-normal ${
                   selectedCard === card.id ? "text-red-500" : "text-[#595959]"
                 }`}
               >
@@ -135,8 +140,7 @@ export default function NewspaperDiscover({ onContinueButton }) {
         className="w-full bg-black text-white p-2 rounded mt-3"
         onClick={onContinueButton}
       >
-        {" "}
-        Continue{" "}
+        Continue
       </Button>
       <div className="w-full bg-gray-300 h-2 rounded mt-6">
         <div className="bg-red-500 h-2 rounded" style={{ width: "55%" }}></div>
