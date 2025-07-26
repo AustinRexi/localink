@@ -15,7 +15,17 @@ interface Issue {
   icons: string;
 }
 
-const subscriptions = [
+interface Subscription {
+  name: string;
+  logo: string;
+  status: string;
+  action: string;
+  issues?: string;
+  isSubscribed: boolean;
+  icon: string;
+}
+
+const subscriptions: Subscription[] = [
   {
     name: "Calgary Herald",
     logo: "/images/calgary-herald.png",
@@ -83,9 +93,8 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("Collection");
   const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
-  const [selectedSubscription, setSelectedSubscription] = useState(
-    subscriptions[0]
-  );
+  const [selectedSubscription, setSelectedSubscription] =
+    useState<Subscription | null>(subscriptions[0]);
 
   const closeModal = () => {
     setIsSubscriptionModalOpen(false);
@@ -118,7 +127,10 @@ export default function Dashboard() {
           </div>
           <div className="relative w-5 h-5">
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full" />
-            <button onClick={() => setIsNotificationModalOpen(true)}>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => setIsNotificationModalOpen(true)}
+            >
               <Image
                 src="/icons/other/bellicon.svg"
                 alt="Bell Icon"
