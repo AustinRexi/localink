@@ -2,7 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-export default function Home({ onContinueButton }) {
+// Define the props interface
+interface HomeProps {
+  onContinueButton: () => void; // Type for the button click handler
+}
+
+export default function Home({ onContinueButton }: HomeProps) {
   const valuePropositions = [
     {
       id: 1,
@@ -23,7 +28,7 @@ export default function Home({ onContinueButton }) {
 
   return (
     <>
-      <div className="  md:justify-center md:items-center md:h-auto relative md:hidden">
+      <div className="md:justify-center md:items-center md:h-auto relative md:hidden">
         <Image
           src="/images/backgroundimage.png"
           alt="web-image"
@@ -34,13 +39,13 @@ export default function Home({ onContinueButton }) {
         <Image
           src="/images/logo.png"
           alt="logo"
-          width={100} // Adjust width as needed
-          height={100} // Adjust height as needed
+          width={100}
+          height={100}
           className="absolute top-0 left-0 z-20"
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center min-h-screen  p-3">
+      <div className="flex flex-col items-center justify-center min-h-screen p-3">
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-4">
           Canadas Virtual Newsstand
         </h1>
