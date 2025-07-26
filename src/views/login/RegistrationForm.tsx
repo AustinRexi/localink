@@ -3,9 +3,15 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import TextInput from "@/components/Input/TextInput";
-// import FormErrorHint from "@/components/FormErrorHint";
 
-export default function RegistrationForm({ onContinueButton }) {
+// Define the props interface
+interface RegistrationFormProps {
+  onContinueButton: () => void; // Type for the onContinueButton prop
+}
+
+export default function RegistrationForm({
+  onContinueButton,
+}: RegistrationFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRobotChecked, setIsRobotChecked] = useState(false);
@@ -65,8 +71,8 @@ export default function RegistrationForm({ onContinueButton }) {
   ];
 
   return (
-    <div className="min-h-screen  flex items-center justify-center py-2 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full rounded-lg  p-8">
+    <div className="min-h-screen flex items-center justify-center py-2 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full rounded-lg p-8">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-semibold text-gray-900">
             Create your account
@@ -115,7 +121,7 @@ export default function RegistrationForm({ onContinueButton }) {
                 setEmail(e.target.value);
                 setEmailError("");
               }}
-              className="px-3 py-2 w-full max-w-sm  font-medium  text-2xl text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-3 py-2 w-full max-w-sm font-medium text-2xl text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               error={emailError}
               placeholder=" Email address*"
               required
@@ -131,7 +137,7 @@ export default function RegistrationForm({ onContinueButton }) {
                 setPassword(e.target.value);
                 setPasswordError("");
               }}
-              className="w-full px-3 py-2 border font-medium  text-2xl text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border font-medium text-2xl text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               error={passwordError}
               placeholder=" Password*"
               required
