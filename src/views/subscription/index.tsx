@@ -4,7 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const SubscriptionCard = ({ onClose }) => {
+// Define the props interface for SubscriptionCard
+interface SubscriptionCardProps {
+  onClose: () => void; // Define onClose as a function that takes no arguments and returns void
+}
+
+const SubscriptionCard = ({ onClose }: SubscriptionCardProps) => {
   const [selected, setSelected] = useState<"monthly" | "annually">("monthly");
 
   return (
